@@ -38,12 +38,17 @@
  */
 package apkeep.core;
 
+import apkeep.rules.FieldType;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.Map;
+
 public class ChangeItem {
 	private String from_port;
 	private String to_port;
-	private int delta;
+	private Pair<FieldType, Integer> delta;
 	
-	public ChangeItem(String port1, String port2, int packets) {
+	public ChangeItem(String port1, String port2, Pair<FieldType, Integer> packets) {
 		from_port = port1;
 		to_port = port2;
 		delta = packets;
@@ -57,7 +62,7 @@ public class ChangeItem {
 		return to_port;
 	}
 
-	public int getDelta() {
+	public Pair<FieldType, Integer> getDelta() {
 		return delta;
 	}
 	

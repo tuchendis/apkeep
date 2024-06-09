@@ -38,8 +38,11 @@
  */
 package apkeep.utils;
 
+import apkeep.rules.FieldType;
 import apkeep.rules.ForwardingRule;
-import common.BDDACLWrapper;
+import common.BDDFieldWrapper;
+
+import java.util.HashMap;
 
 public class TrieTree {
 	TrieTreeNode root;
@@ -47,7 +50,13 @@ public class TrieTree {
 	public TrieTree() {
 		root = new TrieTreeNode(0, -1);
 		TrieTreeNode child = new TrieTreeNode(1, 2);
-		child.addRule(new ForwardingRule(BDDACLWrapper.BDDTrue,BDDACLWrapper.BDDTrue,0,0,"default",-1));
+		HashMap<FieldType, Integer> allTrueMatchBDD = new HashMap<>();
+		HashMap<FieldType, Integer> allTrueHitBDD = new HashMap<>();
+		for (FieldType fieldType : FieldType.values()) {
+			allTrueMatchBDD.put(fieldType, BDDFieldWrapper.BDDTrue);
+			allTrueHitBDD.put(fieldType, BDDFieldWrapper.BDDTrue);
+		}
+		child.addRule(new ForwardingRule(allTrueMatchBDD, allTrueHitBDD, 0, 0, "default", -1));
 		
 		child.setParent(root);
 		root.setChild(2, child);

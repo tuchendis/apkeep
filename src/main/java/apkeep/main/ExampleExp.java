@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
-import apkeep.core.Network;
+import apkeep.core.FieldSeperatedNetwork;
 import apkeep.utils.Evaluator;
 
 public class ExampleExp {
@@ -55,7 +55,7 @@ public class ExampleExp {
 	public static String updateFile;
 	
 	public static String name;
-	public static Network net;
+	public static FieldSeperatedNetwork net;
 	public static Evaluator eva;
 	
 	public static ArrayList<String> topo;
@@ -71,7 +71,7 @@ public class ExampleExp {
 		
 		topo = APKeep.readFile(Paths.get(workingPath, "topo.txt").toString());
 		
-		net = new Network(name);
+		net = new FieldSeperatedNetwork(name);
 		eva = new Evaluator(name,outputPath);
 	}
 	
@@ -178,19 +178,19 @@ public class ExampleExp {
 
 	public static void main(String[] args) throws Exception {
 		
-		run4SwitchExp();
-		runAirtel1Exp();
-		runAirtel2Exp();
-		runInternet2Exp();
+//		run4SwitchExp();
+//		runAirtel1Exp();
+//		runAirtel2Exp();
+//		runInternet2Exp();
 		runStanfordNoACLExp();
-		runStanfordExp();
-		runPurdueNoACLExp();
-		runPurdueExp();
-		
-		runInternet2NATExp(20);
-		runStanfordNATExp(20);
-		
-		run4SwitchLinkFailureExp();
-		runAirtelLinkFailureExp();
+//		runStanfordExp();
+//		runPurdueNoACLExp();
+//		runPurdueExp();
+//
+//		runInternet2NATExp(20);
+//		runStanfordNATExp(20);
+//
+//		run4SwitchLinkFailureExp();
+//		runAirtelLinkFailureExp();
 	}
 }

@@ -40,9 +40,11 @@ package apkeep.checker;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import apkeep.core.APKeeper;
+import apkeep.rules.FieldType;
 import common.PositionTuple;
 
 public class Loop {
@@ -63,7 +65,7 @@ public class Loop {
 	
 	public String toString()
 	{
-		HashSet<String> prefixes = APKeeper.getAPPrefixes(apset);
+		HashSet<String> prefixes = APKeeper.getAPPrefixes(FieldType.dstIp, apset);
 		String loop = "loop found for " + prefixes + ":\n";
 		for (int i=0; i<path.size(); i++) {
 			loop += path.get(i) + " ";
